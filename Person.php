@@ -42,24 +42,25 @@ class Person {
         return $this->lastname;
     }
 
-    function getInfo() {
+   function getInfo() {
         return "<h3> A few words about myself.<h3><br>" . $this->getName().' '.$this->getLastName() . "<br>".
         "my father is: ". $this->getFather()->getName().' '. $this->getFather()->getLastName() . "<br>".
         "my mother is: ". $this->getMother()->getName().' '. $this->getMother()->getLastName() . "<br>".
         "on my father's side, my grandfather: ". $this->getFather()->getFather()->getName().' '. $this->getFather()->getFather()->getLastName() . "<br>".
         "on my father's side, my grandmother: ". $this->getFather()->getMother()->getName().' '. $this->getFather()->getMother()->getLastName() . "<br>".
-        "on my mother's side, my grandfather: ". $this->getMother()->getFather()->getName().' '. $this->getFather()->getFather()->getLastName() . "<br>".
-        "on my mother's side, my grandmother: ". $this->getMother()->getMother()->getName().' '. $this->getFather()->getMother()->getLastName() . "<br>";
+        "on my mother's side, my grandfather: ". $this->getMother()->getFather()->getName().' '. $this->getMother()->getFather()->getLastName() . "<br>".
+        "on my mother's side, my grandmother: ". $this->getMother()->getMother()->getName().' '. $this->getMother()->getMother()->getLastName() . "<br>".
+        "";
     }
 }
 
-$alex = new Person("Alex", "Petrov", 43, $maria, $oleg );
-$olga = new Person("Olga", "Petrova", 43, $elena, $igor);
-$vitaly = new Person("Vitaly", "Petrov", 13, $olga, $alex); // сын
 $igor = new Person("Igor", "Ivanov", 67); //отец жены
 $elena = new Person("Elena", "Ivanova", 67); // мать жены
+$olga = new Person("Olga", "Petrova", 43, $elena, $igor);
 $oleg = new Person("Oleg", "Petrov", 65); //отец мужа
 $maria = new Person("Maria", "Petrova", 65); // мать мужа
+$alex = new Person("Alex", "Petrov", 43, $maria, $oleg );
+$vitaly = new Person("Vitaly", "Petrov", 13, $olga, $alex); // сын
 
 echo $vitaly->getInfo();
 
